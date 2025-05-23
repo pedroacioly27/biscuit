@@ -1,11 +1,10 @@
 const express = require("express");
-const knex = require("./connect.js");
+const orders = require("../controllers/orders.js");
 
 const routes = express();
 
-routes.get("/", async (req, res) => {
-  const a = await knex("encomendas");
-  res.status(200).json(a);
-});
+routes.get("/", orders.getOrders);
+routes.delete("/:id", orders.deleteOrders);
+routes.delete("/description/:id", orders.deleteDescription);
 
 module.exports = routes;
