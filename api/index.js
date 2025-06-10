@@ -9,13 +9,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-routes.get("/", orders.getOrders);
-routes.get("/description/:id", orders.getDescriptions);
-routes.get("/title/description/:title", orders.getDescriptionsTitle);
-routes.post("/", orders.postOrder);
-routes.post("/description", orders.postDescription);
-routes.delete("/:id", orders.deleteOrders);
-routes.delete("/description/:id", orders.deleteDescription);
+app.get("/", orders.getOrders);
+app.get("/description/:id", orders.getDescriptions);
+app.get("/title/description/:title", orders.getDescriptionsTitle);
+app.post("/", orders.postOrder);
+app.post("/description", orders.postDescription);
+app.delete("/:id", orders.deleteOrders);
+app.delete("/description/:id", orders.deleteDescription);
 
 module.exports = app;
 module.exports.handler = serverless(app);
