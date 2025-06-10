@@ -17,4 +17,7 @@ app.post("/description", orders.postDescription);
 app.delete("/:id", orders.deleteOrders);
 app.delete("/description/:id", orders.deleteDescription);
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
 module.exports = serverless(app);
