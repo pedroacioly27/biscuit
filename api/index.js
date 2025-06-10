@@ -17,5 +17,4 @@ app.post("/description", orders.postDescription);
 app.delete("/:id", orders.deleteOrders);
 app.delete("/description/:id", orders.deleteDescription);
 
-module.exports = app;
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
